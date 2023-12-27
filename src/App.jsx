@@ -1,11 +1,12 @@
-import  { useEffect, useState } from 'react';
+import React from 'react';
+import { useEffect, useState } from 'react';
 import './App.css'
 import { useDispatch } from 'react-redux';
 import authservice from './appwrite/auth';
 import { login, logout } from './Store.js/authSlice';
-import Header from './Component/Header/Header'
 import Footer from './Component/Footer/Footer'
 import { Outlet } from 'react-router-dom';
+import Header from './Component/Header/Header';
 
 function App() {
   const[loading,setloading]=useState(true);
@@ -36,7 +37,8 @@ function App() {
          {!loading ? (
           <div className='min-h-sc flex-wrap flex bg-slate-600'> 
           <div className='w-full block'>
-            <Header/>
+            <Header />
+            <h1>helllo</h1>
             <div>
               <Outlet/>
             </div>
