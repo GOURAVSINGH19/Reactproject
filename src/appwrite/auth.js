@@ -1,4 +1,3 @@
-import { toast } from 'react-toastify';
 import conf from '../conf/conf.js';
 import { Client, Account, ID } from "appwrite";
 
@@ -25,8 +24,7 @@ export class AuthService {
                return  userAccount;
             }
         } catch (error) {
-            console.log("error",error);
-            toast.error("error")
+            throw error;
         }
     }
 
@@ -34,9 +32,8 @@ export class AuthService {
         try {
             return await this.account.createEmailSession(email, password);
         } catch (error) {
-          console.log("error");
-          toast.error("error in login");
-                }
+            throw error;
+        }
     }
 
     async getCurrentUser() {
